@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from openai import OpenAI
@@ -8,8 +8,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = Flask(__name__)
-CORS(app)
+# Ініціалізуємо Flask, вказуючи, де знаходяться статичні файли
+app = Flask(__name__, static_folder='static', static_url_path='')
+CORS(app) # Залишимо на випадок майбутніх потреб
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flashcards.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -58,6 +59,16 @@ def set_setting(key, value):
     db.session.commit()
 
 # --- API Ендпоінти ---
+
+# --- Маршрут для головної сторінки ---
+@app.route('/')
+def serve_index():
+    return send_from_directory(app.static_folder, 'index.html')
+
+# --- Маршрут для сторінки списків ---
+@app.route('/lists.html')
+def serve_lists():
+    return send_from_directory(app.static_folder, 'lists.html')
 
 @app.route('/api/words/search', methods=['POST'])
 def search_word():

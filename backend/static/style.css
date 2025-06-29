@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #e74c3c;
+    --warning-color: #f39c12;
+    --background-color: #f4f6f7;
+    --card-bg-color: #ffffff;
+    --success-color: #2ecc71;
+    --accent-color: #3498db;
+    --font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 20px;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.stats-links a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.stats-links a:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+.stats-links span {
+    margin: 0 10px;
+}
+
+.section {
+    background-color: var(--card-bg-color);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+h2 {
+    margin-top: 0;
+    color: var(--secondary-color);
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Settings Section */
+.setting-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+.setting-item label {
+    font-weight: 600;
+}
+.setting-item input[type=number] {
+    width: 60px;
+    padding: 8px;
+    font-size: 16px;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    text-align: center;
+}
+#settings-status {
+    font-weight: 600;
+    margin-left: 15px;
+}
+
+#search-word-form {
+    display: flex;
+    gap: 10px;
+}
+
+#new-word-input {
+    flex-grow: 1;
+    padding: 12px;
+    border: 2px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#save-settings-btn {
+    background-color: var(--accent-color);
+}
+#start-new-block-btn,
+#start-review-btn {
+    background-color: var(--success-color);
+    padding: 15px 30px;
+}
+
+button:hover {
+    filter: brightness(110%);
+}
+button:active {
+    transform: scale(0.98);
+}
+
+button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+#loading {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+#search-result-area {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid var(--accent-color);
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+#search-result-area .card-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.add-card-btn-from-search {
+    background-color: var(--success-color);
+    margin-top: 20px;
+}
+
+/* Review Section */
+.review-section {
+    text-align: center;
+}
+#review-header {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+#flashcard {
+    background-color: #fdfdfd;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#turkish-word {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.card-back {
+    text-align: left;
+    width: 100%;
+}
+
+.translation-block {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #dcdde1;
+}
+.translation-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.ukrainian-translation {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--success-color);
+}
+.example {
+    margin-top: 10px;
+    font-style: italic;
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+.example-tr { font-weight: 600; }
+.example strong {
+    font-style: normal;
+    color: var(--secondary-color);
+}
+
+#review-controls { margin-top: 10px; }
+
+#feedback-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.feedback-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+}
+#know-btn { background-color: var(--success-color); }
+#unsure-btn { background-color: var(--warning-color); }
+#dont-know-btn { background-color: var(--secondary-color); }
+
+#next-card-btn {
+    margin-top: 15px;
+    padding: 15px 40px;
+    font-size: 18px;
+    width: 100%;
+    max-width: 300px;
+    background-color: var(--accent-color);
+}
+
+/* Session Summary */
+#session-summary {
+    background-color: #eafaf1;
+    border: 2px solid var(--success-color);
+    padding: 20px;
+    border-radius: 8px;
+}
+#summary-stats p {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.hidden {
+    display: none;
+}

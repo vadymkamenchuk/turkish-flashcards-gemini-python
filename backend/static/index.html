@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turkish Flashcards</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Вивчення турецьких слів 🇹🇷</h1>
+            <div id="stats" class="stats-links"></div>
+        </header>
+
+        <main>
+            <div class="section add-word-section">
+                <h2>Пошук нового слова</h2>
+                <form id="search-word-form">
+                    <input type="text" id="new-word-input" placeholder="Введіть турецьке слово..." required>
+                    <button type="submit" id="search-word-btn">Шукати нове слово</button>
+                </form>
+                <div id="loading" class="hidden">🧠 Звертаюсь до ШІ...</div>
+                <div id="search-result-area"></div>
+            </div>
+
+            <div class="section review-section">
+                <h2>Повторення</h2>
+                <button id="start-review-btn">Почати блок повторення</button>
+                
+                <div id="review-area" class="hidden">
+                    <div id="review-header">
+                        <span id="review-counter"></span>
+                    </div>
+                    <div id="flashcard">
+                        <div class="card-front">
+                            <p id="turkish-word"></p>
+                        </div>
+                        <div class="card-back hidden">
+                            <div id="translations"></div>
+                        </div>
+                    </div>
+                    <div id="review-controls">
+                         <button id="reveal-btn">Показати переклад</button>
+                         <div id="feedback-buttons" class="hidden">
+                            <button id="know-btn" class="feedback-btn">✅ Знаю</button>
+                            <button id="unsure-btn" class="feedback-btn">🤔 Невпевнений</button>
+                            <button id="dont-know-btn" class="feedback-btn">❌ Не знаю</button>
+                        </div>
+                        <button id="next-card-btn" class="hidden">Далі →</button>
+                    </div>
+                </div>
+
+                <div id="session-summary" class="hidden">
+                    <h3>Результати блоку</h3>
+                    <div id="summary-stats"></div>
+                    <button id="start-new-block-btn">Почати новий блок</button>
+                </div>
+
+                 <div id="no-cards-message" class="hidden">🎉 У вас ще немає жодної картки. Додайте перше слово!</div>
+            </div>
+            
+            <div class="section settings-section">
+                <h2>Налаштування</h2>
+                <div class="setting-item">
+                    <label for="learned-threshold">Вважати слово вивченим після (правильних відповідей):</label>
+                    <input type="number" id="learned-threshold" min="1" value="3">
+                </div>
+                <div class="setting-item">
+                    <label for="block-size">Кількість карток в блоці:</label>
+                    <input type="number" id="block-size" min="1" value="10">
+                </div>
+                <button id="save-settings-btn">Зберегти налаштування</button>
+                <span id="settings-status" class="hidden"></span>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
